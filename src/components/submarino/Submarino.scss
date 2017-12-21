@@ -1,0 +1,452 @@
+
+$color1: #306D85;
+$color2: #D93A54;
+$color3: rgb(168, 193, 201);
+
+body {
+    background: radial-gradient(ellipse at center, rgb(1, 4, 20) 0%,rgb(2, 30, 65) 50%,#031b3f 99%);
+    
+
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+
+.sea {
+    margin: 100px 20px;
+    overflow: hidden;
+    
+    .bubble {
+        position: absolute;
+        width: 12px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: radial-gradient(darken($color1, 45%),darken($color1, 35%));
+        opacity: 0.9;
+        animation: bubble1-h-movement 2s ease-in infinite, bubble1-v-movement 300ms ease-in-out infinite alternate, bubble-scale-movement 300ms ease-in-out infinite alternate;
+        
+        &:after {
+            position: absolute;
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: lighten($color1, 25%);
+            opacity: 0.8;
+            animation: bubble2-h-movement 5s ease-in infinite, bubble2-v-movement 500ms ease-in-out infinite alternate, bubble-scale-movement 500ms ease-in-out infinite alternate;
+
+        }
+        &:after {
+          top: -20;
+          left:100px;
+          width: 9px;
+          height: 9px;
+        }
+       
+
+    }
+        
+    .bubble2 {
+        position: absolute;
+        top: 160px;
+        width: 18px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: lighten($color1, 25%);
+        opacity: 0.9;
+        animation: bubble2-h-movement 2s ease-in infinite, bubble2-v-movement 300ms ease-in-out infinite alternate, bubble-scale-movement 300ms ease-in-out infinite alternate;
+        z-index: 99;
+        &:after {
+            position: absolute;
+            content: "";
+            width: 7px;
+            height: 7px;
+            top: 10px;
+            border-radius: 50%;
+            background-color: lighten($color1, 25%);
+            opacity: 0.8;
+            animation: bubble2-h-movement 2s ease-in infinite, bubble2-v-movement 1500ms ease-in-out infinite alternate, bubble-scale-movement 1500ms ease-in-out infinite alternate;
+
+        }
+        &:after {
+          top: 20;
+          left:20px;
+          width: 9px;
+          height: 9px;
+        }
+ 
+        
+
+    }
+    
+    .circle-wrapper {
+        position: relative;
+        background: linear-gradient(darken($color1, 10%), darken($color1, 30%));
+        width:100%;
+        height:500px;
+        margin: 10px auto 0 auto;
+        overflow: hidden;
+        z-index: 0;
+        border-radius:40%;
+        padding: 0 50px 0 50px;
+        border: 25px solid darken($color1, 35%);
+        
+    }
+    
+    .submarine-wrapper {
+        height: 300px;
+        width: 300px;
+        padding: 30px 50px 30px 150px;
+        margin: 100px auto 0 auto;
+        animation: diving 7s ease-in-out infinite, diving-rotate 3s ease-in-out infinite;
+        
+       .submarine-body {
+           
+           width: 450px;
+           height: 100px;
+           position: absolute;
+           margin-top: 150px;
+           left: 25px;
+           background-color: $color3;
+           border-radius: 10% 35% 99% 50%;
+           background: linear-gradient($color3, darken($color3, 50%));
+           .light {
+                position:absolute;
+                width: 50px;
+                height: 0;
+                border-style: solid;
+                border-width: 0 60px 300px 60px;
+                border-color: transparent transparent lighten($color1,5%) transparent;
+                transform: rotate(-70deg);
+               top: -30%;
+               left:110%;
+               
+               
+           }
+           .launcher{
+            position:absolute;
+            width: 5px;
+            height: 35px;
+            border-radius: 40% 45% 45% 40%;
+            border-style: solid;
+            border-width: 6px 5px 8px 4px;
+            transform: rotate(-93deg);
+            background: darken($color3,56%);
+            border-color: transparent transparent darken($color3,52%) darken($color3, 45%);
+            top: 70%;
+            left:68%;
+
+           }
+           
+           .window {
+               width: 22px;
+               height: 22px;
+               position: absolute;
+               margin-top: 30px;
+               right: 100px;
+               background: linear-gradient(darken($color1, 23%), darken($color1, 8%));
+               border-radius: 50%;
+               border: 3px solid darken($color3,40%);
+               
+                &:after {
+                  content: "";
+                  position: absolute;
+                  margin-top:2px;
+                  margin-left:1px;
+                  width: 11px;
+                  height: 9px;
+                  border-radius: 50%;
+                  background-color: transparent;
+                  opacity:0.8;
+                  border-top:2px solid white;
+                  transform:rotate(-45deg); 
+                }
+
+                &.w1 {
+                    right: 150px;
+                }
+                &.w2 {
+                    right: 200px;
+                }
+                &.w3 {
+                    right: 250px;
+                }
+                &.w4 {
+                    right: 300px;
+                }
+               
+           }
+           
+           .engine {
+               width: 30px;
+               height: 30px;
+               position: absolute;
+               margin-top: 30px;
+               left: 53px;
+               background-color: darken($color3, 40%);
+               border-radius: 50%;
+               border: 5px solid darken($color3,30%);
+               
+               &:after, &:before {
+                  position: absolute;
+                  content: "";
+                  border-radius: 2px;
+                  background-color: white;
+                  animation:spin 1000ms linear infinite;
+                  opacity:0.8;
+                }
+                &:after {
+                  top:8px;
+                  width: 20px;
+                  height: 4px;
+                  
+                }
+                &:before {
+                  left:8px;
+                  width: 4px;
+                  height: 20px;
+                  
+                }
+           }
+       }
+       
+        .helix {
+           width: 30px;
+           height: 90px;
+           position: absolute;
+           margin-top: 140px;
+           left:0;
+           background-color: $color3;
+           border-radius: 7px;
+           background: linear-gradient($color3, darken($color3, 50%));
+           
+            &:after {
+                content: "";
+                position: absolute;
+                margin-top:5px;
+                margin-left:6px;
+                width: 17px;
+                height: 80px;
+                border-radius: 3px;
+                background-color: transparent;
+                opacity:0.8;
+                background: linear-gradient(
+                  to bottom,
+                  darken($color3, 20%),
+                  $color3 80%,
+                  darken($color3, 25%) 50%,
+                  lighten($color3, 25%)
+                );
+                background-size: 100% 20px;
+                animation:helix-movement 110ms linear infinite;
+
+            }
+        }
+        
+        
+        .hat {
+           width: 73px;
+           height: 35px;
+           position: absolute;
+           margin-top: 116px;
+           left:70px;
+           background-color: $color3;
+           border-radius: 10px 10px 0 0;
+           background: linear-gradient($color3, darken($color3, 3%));
+           
+            .periscope {
+                position: absolute;
+                width: 7px;
+                height: 20px;
+                background-color: $color3;
+                margin-top: -27px;
+                margin-left:32px;
+                border-radius:5px 5px 0 0;
+                
+                &:after, &:before {
+                    content: "";
+                    position: absolute;
+                    width: 15px;
+                    height: 7px;
+                    border-radius: 5px;
+                    background-color: $color3;
+                }
+            }
+            
+            .leds-wrapper {
+               width: 53px;
+               height: 13px;
+               position: relative;
+               top:7px;
+               left:7px;
+               background-color: $color3;
+               border-radius: 10px;
+               background: linear-gradient(darken($color3, 12%), darken($color3, 16%));
+                
+                .leds {
+                    position: absolute;
+                    margin-top:4px;
+                    margin-left:7px;
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background-color: white;
+                    animation:leds-off 500ms linear infinite;
+
+                    &:after, &:before {
+                        content: "";
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background-color: white;
+                    }
+                    &:after {
+                        margin-top:0px;
+                        margin-left:17px;
+                    }
+                    &:before {
+                        margin-top:0px;
+                        margin-left:34px;
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    .button {
+        width: 200px;
+        height: 100px;
+        border-radius: 5%;
+        padding-top: 3%;
+        padding-left: 7%;
+        font-size: 25px;
+        font-weight: bold;
+        color: whitesmoke;
+        background: linear-gradient(darken($color2, 10%), darken($color2, 34%));
+        position: absolute;
+        top: 80%;
+        left: 70%; 
+    }
+}
+
+
+@keyframes spin { 
+    100% { 
+        transform:rotate(360deg); 
+    } 
+}
+
+@keyframes leds-off { 
+    0% { 
+        opacity:0.2;
+    }
+    50% { 
+        opacity:0.6;
+    }
+    100% { 
+        opacity:0.2;
+    } 
+}
+
+@keyframes helix-movement {
+    100% {
+        background: linear-gradient(
+          to bottom,
+          lighten($color3, 15%) 50%,
+          lighten($color3, 15%),
+          $color3,
+          $color3 50%
+        );
+        background-size: 100% 20px;
+    }
+}
+
+
+@keyframes diving {
+    0% {
+         margin-top:5px;
+    }
+    50% {
+         margin-top:10px;
+    }
+    
+    100% {
+         margin-top:5px;
+    }
+}
+
+@keyframes diving-rotate {
+    0% {
+         transform:rotate(0deg); 
+    }
+    50% {
+         transform:rotate(2deg); 
+    }
+    75% {
+        transform:rotate(-2deg); 
+    }
+    100% {
+        transform:rotate(0deg); 
+    }
+}
+
+    @keyframes bubble1-h-movement {
+      0% { 
+          margin-left: 100%;
+      }
+      100% { 
+           margin-left: -1%; 
+      }
+    }   
+
+    @keyframes bubble2-h-movement {
+      0% { 
+          margin-left: 100%;
+      }
+      100% { 
+           margin-left: -1%; 
+      }
+    }
+
+    @keyframes bubble1-v-movement {
+      0% { 
+          margin-top: 115px; 
+      }
+      100% { 
+          margin-top:180px; 
+      }
+    }
+    
+    @keyframes bubble2-v-movement {
+      0% { 
+          margin-top: 115px; 
+      }
+      100% { 
+          margin-top:90px; 
+      }
+    }
+
+    @keyframes bubble-scale-movement {
+      0% { 
+          transform: scale(1.2);
+      }
+      100% { 
+          transform: scale(0.9);
+      }
+    }
+
+    @keyframes light-movement {
+      0% { 
+          transform: rotate(-40deg);
+      }
+      50% {
+          transform: rotate(-70deg);
+      }
+      100% { 
+          transform: rotate(-40deg);
+      }
+    }
